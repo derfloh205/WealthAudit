@@ -4,10 +4,11 @@
 ## Title: WealthAudit
 ## Notes: Check out your targets wealth!
 ## Author: genjuwow
-## X-Curse-Project-ID: 942303
-## X-Wago-ID: n6VPOLGd
-## X-WoWI-ID: 26653
-## SavedVariablesPerCharacter: WealthAuditGGUIConfig
+## X-Curse-Project-ID: 959621
+## X-Wago-ID: 
+## X-WoWI-ID: 
+## IconTexture: Interface\Icons\inv_misc_coin_02
+## SavedVariables: WealthAuditGGUIConfig
 ## Version: 1.0.0
 
 embeds.xml
