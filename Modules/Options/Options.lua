@@ -1,5 +1,7 @@
+---@class WealthAudit
 local WealthAudit = select(2, ...)
 
+---@class WealthAudit.OPTIONS
 WealthAudit.OPTIONS = {}
 
 function WealthAudit.OPTIONS:Init()

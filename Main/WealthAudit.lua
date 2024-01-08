@@ -1,11 +1,13 @@
 local WealthAuditAddonName = select(1, ...)
+---@class WealthAudit
 local WealthAudit = select(2, ...)
 
----@class LoadoutReminder.MAIN : Frame
+---@class WealthAudit.MAIN : Frame
 WealthAudit.MAIN = CreateFrame("Frame")
 WealthAudit.MAIN:SetScript("OnEvent", function(self, event, ...) self[event](self, ...) end)
 WealthAudit.MAIN:RegisterEvent("ADDON_LOADED")
 WealthAudit.MAIN:RegisterEvent("PLAYER_TARGET_CHANGED")
+WealthAudit.MAIN:RegisterEvent("INSPECT_ACHIEVEMENT_READY")
 
 WealthAudit.MAIN.FRAMES = {}
 
@@ -17,7 +19,8 @@ function WealthAudit.MAIN:Init()
 	WealthAudit.AUDIT_FRAME.FRAMES:Init()	
 
 	-- restore frame positions
-	local auditFrame = WealthAudit.GGUI:GetFrame(WealthAudit.MAIN.FRAMES, WealthAudit.CONST.FRAMES.REMINDER_FRAME)
+	---@type WealthAudit.AuditFrame
+	local auditFrame = WealthAudit.GGUI:GetFrame(WealthAudit.MAIN.FRAMES, WealthAudit.CONST.FRAMES.AUDIT_FRAME)
 	auditFrame:RestoreSavedConfig(UIParent)
 end
 
@@ -53,5 +56,12 @@ end
 
 -- EVENTS
 function WealthAudit.MAIN:PLAYER_TARGET_CHANGED() 
-	
+	if WealthAudit.AUDIT_FRAME.frame:IsVisible() and UnitIsPlayer("target") then
+		SetAchievementComparisonUnit("target")
+	end
+end
+function WealthAudit.MAIN:INSPECT_ACHIEVEMENT_READY() 
+	if WealthAudit.AUDIT_FRAME.frame:IsVisible() then
+		WealthAudit.AUDIT_FRAME.FRAMES:UpdateDisplay()
+	end
 end

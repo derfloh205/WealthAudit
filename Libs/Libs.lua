@@ -1,3 +1,4 @@
+---@class WealthAudit
 local WealthAudit = select(2, ...)
 
 ---@type GGUI-2.0

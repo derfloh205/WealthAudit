@@ -20,3 +20,4 @@ Main/WealthAudit.lua
 
 Modules/AuditFrame/AuditFrame.lua
 Modules/AuditFrame/Frames.lua
+Modules/Options/Options.lua

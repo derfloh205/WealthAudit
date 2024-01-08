@@ -7,12 +7,12 @@
 -- the terms of the MIT license. See LICENSE for details.
 --
 
-_, LoadoutReminder = ...
+local WealthAudit = select(2, ...)
 
 local Object = {}
 Object.__index = Object
 
-LoadoutReminder.Object = Object
+WealthAudit.Object = Object
 
 
 function Object:new()

@@ -1,16 +1,31 @@
+---@class WealthAudit
 local WealthAudit = select(2, ...)
 
+---@class WealthAudit.CONST
 WealthAudit.CONST = {}
+
+WealthAudit.CONST.STATISTIC_IDS = {
+    MOST_GOLD_EVER_OWNED = 334,
+    GOLD_FROM_AUCTIONS = 919,
+}
 
 WealthAudit.CONST.FRAMES = {
     AUDIT_FRAME = "AUDIT_FRAME",
 }
 
 WealthAudit.CONST.DEFAULT_BACKDROP_OPTIONS = {
-    bgFile = "Interface\\CharacterFrame\\UI-Party-Background",
+    bgFile = "Interface\\PaperDollInfoFrame\\UI-Character-Reputation-DetailBackground",
     borderOptions = {
-        edgeFile = "Interface\\PVPFrame\\UI-Character-PVP-Highlight", -- this one is neat
-        edgeSize = 16,
-        insets = { left = 8, right = 6, top = 8, bottom = 8 },
-    }
+        edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border", -- this one is neat
+        edgeSize = 32,
+        insets = { left = 5, right = -110, top = 5, bottom = 5 },
+        colorR=1,
+        colorG=1,
+        colorB=1,
+        colorA=1,
+    },
+    colorR=1,
+    colorG=1,
+    colorB=1,
+    colorA=1,
 }
