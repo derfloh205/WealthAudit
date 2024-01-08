@@ -1,0 +1,21 @@
+## Interface: 102000
+## DefaultState: enabled
+
+## Title: WealthAudit
+## Notes: Check out your targets wealth!
+## Author: genjuwow
+## X-Curse-Project-ID: 942303
+## X-Wago-ID: n6VPOLGd
+## X-WoWI-ID: 26653
+## SavedVariablesPerCharacter: WealthAuditGGUIConfig
+## Version: 1.0.0
+
+embeds.xml
+Libs/Libs.lua
+Util/Const.lua
+Util/Util.lua
+
+Main/WealthAudit.lua
+
+Modules/AuditFrame/AuditFrame.lua
+Modules/AuditFrame/Frames.lua
