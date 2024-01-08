@@ -68,8 +68,8 @@ end
 local lastStatsMap = {}
 local lastTarget = nil
 function WealthAudit.AUDIT_FRAME.FRAMES:UpdateDisplay()    
-    local mostGoldEverOwned = GetComparisonStatistic(WealthAudit.CONST.STATISTIC_IDS.MOST_GOLD_EVER_OWNED)
-    local goldFromAuctions = GetComparisonStatistic(WealthAudit.CONST.STATISTIC_IDS.GOLD_FROM_AUCTIONS)
+    local mostGoldEverOwned = WealthAudit.UTIL:ExtractCopperFromMoneyString(GetComparisonStatistic(WealthAudit.CONST.STATISTIC_IDS.MOST_GOLD_EVER_OWNED))
+    local goldFromAuctions = WealthAudit.UTIL:ExtractCopperFromMoneyString(GetComparisonStatistic(WealthAudit.CONST.STATISTIC_IDS.GOLD_FROM_AUCTIONS))
     local target = UnitName("target")
     
     if mostGoldEverOwned == lastStatsMap["mostGoldEverOwned"] and lastTarget ~= target then
@@ -87,7 +87,7 @@ function WealthAudit.AUDIT_FRAME.FRAMES:UpdateDisplay()
 
     local auditFrame = WealthAudit.AUDIT_FRAME.frame
 
-    auditFrame.content.mostGoldOwnedValue:SetText(mostGoldEverOwned or GUTIL:FormatMoney(0, false))
-    auditFrame.content.goldFromAuctionsValue:SetText(goldFromAuctions or GUTIL:FormatMoney(0, false))
+    auditFrame.content.mostGoldOwnedValue:SetText((mostGoldEverOwned and GUTIL:FormatMoney(mostGoldEverOwned, false)) or GUTIL:FormatMoney(0, false))
+    auditFrame.content.goldFromAuctionsValue:SetText((goldFromAuctions and GUTIL:FormatMoney(goldFromAuctions, false)) or GUTIL:FormatMoney(0, false))
     auditFrame.content.playerName:SetText(UnitNameUnmodified("target"))
 end
