@@ -87,7 +87,7 @@ function WealthAudit.AUDIT_FRAME.FRAMES:UpdateDisplay()
 
     local auditFrame = WealthAudit.AUDIT_FRAME.frame
 
-    auditFrame.content.mostGoldOwnedValue:SetText((mostGoldEverOwned and GUTIL:FormatMoney(mostGoldEverOwned, false)) or GUTIL:FormatMoney(0, false))
-    auditFrame.content.goldFromAuctionsValue:SetText((goldFromAuctions and GUTIL:FormatMoney(goldFromAuctions, false)) or GUTIL:FormatMoney(0, false))
+    auditFrame.content.mostGoldOwnedValue:SetText((mostGoldEverOwned and GUTIL:FormatMoney(mostGoldEverOwned, false, nil, true)) or GUTIL:FormatMoney(0, false))
+    auditFrame.content.goldFromAuctionsValue:SetText((goldFromAuctions and GUTIL:FormatMoney(goldFromAuctions, false, nil, true)) or GUTIL:FormatMoney(0, false))
     auditFrame.content.playerName:SetText(UnitNameUnmodified("target"))
 end
