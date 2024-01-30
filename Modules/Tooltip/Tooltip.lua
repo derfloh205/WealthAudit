@@ -26,7 +26,7 @@ function WealthAudit.TOOLTIP:INSPECT_ACHIEVEMENT_READY()
             local name = UnitName(unit)
             if name == WealthAudit.TOOLTIP.loadingPlayer then
                 local tooltipText = WealthAudit.TOOLTIP:GetTooltipText(unit)
-                GameTooltip:AddLine(GUTIL:ColorizeText("WealthAudit:", GUTIL.COLORS.GREEN))
+                GameTooltip:AddLine(GUTIL:ColorizeText("\nWealthAudit:", GUTIL.COLORS.GREEN))
                 GameTooltip:AddLine(tooltipText)
                 GameTooltip:Show() -- update
             end
