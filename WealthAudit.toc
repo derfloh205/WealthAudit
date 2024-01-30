@@ -9,7 +9,7 @@
 ## X-WoWI-ID: 
 ## IconTexture: Interface\Icons\inv_misc_coin_02
 ## SavedVariables: WealthAuditGGUIConfig
-## Version: 1.2.0
+## Version: 2.0.0
 
 embeds.xml
 Libs/Libs.lua
@@ -18,6 +18,5 @@ Util/Util.lua
 
 Main/WealthAudit.lua
 
-Modules/AuditFrame/AuditFrame.lua
-Modules/AuditFrame/Frames.lua
+Modules/Tooltip/Tooltip.lua
 Modules/Options/Options.lua

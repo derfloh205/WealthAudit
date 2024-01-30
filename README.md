@@ -1,1 +1,1 @@
-Checkout your targets most gold ever owned and more
+Displays most own gold, gold from auctions and if a player owns a bruto mount in player tooltips
