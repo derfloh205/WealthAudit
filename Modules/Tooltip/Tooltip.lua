@@ -12,9 +12,10 @@ function WealthAudit.TOOLTIP:Init()
     TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(_, data)
         local unit = select(2, GameTooltip:GetUnit())
         if unit and UnitIsPlayer(unit) then
-            WealthAudit.TOOLTIP.isLoading = true
-            WealthAudit.TOOLTIP.loadingPlayer = UnitName(unit)
-            SetAchievementComparisonUnit(unit)
+            if SetAchievementComparisonUnit(unit) then
+                WealthAudit.TOOLTIP.isLoading = true
+                WealthAudit.TOOLTIP.loadingPlayer = UnitName(unit)
+            end
         end
     end)
 end
