@@ -6,7 +6,7 @@ local GUTIL = WealthAudit.GUTIL
 ---@class WealthAudit.TOOLTIP : Frame
 WealthAudit.TOOLTIP = GUTIL:CreateRegistreeForEvents({ "INSPECT_ACHIEVEMENT_READY" })
 WealthAudit.TOOLTIP.isLoading = false
-WealthAudit.TOOLTIP.loadingPlayer = nil
+WealthAudit.TOOLTIP.loadingPlayerGUID = nil
 
 function WealthAudit.TOOLTIP:Init()
     TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(_, data)
@@ -14,27 +14,25 @@ function WealthAudit.TOOLTIP:Init()
         if unit and UnitIsPlayer(unit) then
             if SetAchievementComparisonUnit(unit) then
                 WealthAudit.TOOLTIP.isLoading = true
-                WealthAudit.TOOLTIP.loadingPlayer = UnitName(unit)
+                WealthAudit.TOOLTIP.loadingPlayerGUID = UnitGUID(unit)
             end
         end
     end)
 end
 
-function WealthAudit.TOOLTIP:INSPECT_ACHIEVEMENT_READY()
-    if GameTooltip:IsVisible() and WealthAudit.TOOLTIP.isLoading then
+function WealthAudit.TOOLTIP:INSPECT_ACHIEVEMENT_READY(unitGUID)
+    if GameTooltip:IsVisible() and WealthAudit.TOOLTIP.isLoading and unitGUID == WealthAudit.TOOLTIP.loadingPlayerGUID then
         local unit = select(2, GameTooltip:GetUnit())
         if unit and UnitIsPlayer(unit) then
-            local name = UnitName(unit)
-            if name == WealthAudit.TOOLTIP.loadingPlayer then
-                local tooltipText = WealthAudit.TOOLTIP:GetTooltipText(unit)
-                GameTooltip:AddLine(GUTIL:ColorizeText("\nWealthAudit:", GUTIL.COLORS.GREEN))
-                GameTooltip:AddLine(tooltipText)
-                GameTooltip:Show() -- update
-            end
+            local tooltipText = WealthAudit.TOOLTIP:GetTooltipText(unit)
+            GameTooltip:AddLine(GUTIL:ColorizeText("\nWealthAudit:", GUTIL.COLORS.GREEN))
+            GameTooltip:AddLine(tooltipText)
+            GameTooltip:Show() -- update
         end
 
         WealthAudit.TOOLTIP.isLoading = false
-        WealthAudit.TOOLTIP.loadingPlayer = nil
+        WealthAudit.TOOLTIP.loadingPlayerGUID = nil
+        ClearAchievementComparisonUnit()
     end
 end
 
