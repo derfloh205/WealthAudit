@@ -15,6 +15,8 @@ function WealthAudit.MAIN:Init()
 	WealthAudit.MAIN:InitializeSlashCommands()
 	WealthAudit.OPTIONS:Init()
 	WealthAudit.TOOLTIP:Init()
+	-- force initialize achievement stat tab to prevent errors
+	AchievementFrameBaseTab_OnClick(3) -- 3 is the stat tab index
 end
 
 function WealthAudit.MAIN:ADDON_LOADED(addon_name)

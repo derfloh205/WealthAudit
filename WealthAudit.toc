@@ -9,7 +9,8 @@
 ## X-WoWI-ID: 
 ## IconTexture: Interface\Icons\inv_misc_coin_02
 ## SavedVariables: WealthAuditGGUIConfig
-## Version: 2.0.2
+## Version: 2.0.3
+## Dependencies: Blizzard_AchievementUI
 
 embeds.xml
 Libs/Libs.lua
